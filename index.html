@@ -5,32 +5,246 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
   <title>Frontend Mentor | Product preview card component</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Kumbh Sans', sans-serif;
+      background-color: hsl(30, 38%, 92%);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+
+    .flex-container {
+      display: flex; 
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 350px;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .card-container.one {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      height: 250px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .card-container.two {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      height: 350px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 350px;
+      height: 250px;
+      background-image: url(./images/image-product-mobile.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .category-container {
+      display: flex;
+      justify-content: start;
+      width: 350px;
+      height: 40px;
+      background-color: hsl(0, 0%, 100%);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .category-text {
+      
+      font-size: 12px;
+      font-weight: 500;
+      margin-left: 28px;
+      margin-top: 20px;
+      height: 100%;
+      color: hsl(228, 12%, 48%);
+    }
+
+    .title-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 350px;
+      height: 75px;
+      background-color: hsl(0, 0%, 100%);
+    }
+
+    .title {
+      font-family: 'Fraunces', serif;
+      font-size: 35px;
+      width: 85%;
+      font-weight: 700;
+    }
+
+    .item-description-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 350px;
+      height: 100px;
+      background-color: hsl(0, 0%, 100%);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: hsl(228, 12%, 48%);
+    }
+
+    .description-text {
+      margin-top: ;
+      width: 85%;
+      height: 85%;
+      line-height: 1.6;
+    }
+
+    .item-cost-container {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      width: 350px;
+      height: 65px;
+      background-color: hsl(0, 0%, 100%);
+    }
+
+    .item-cost.one {
+      font-family: 'Fraunces', serif;
+      font-size: 35px;
+      font-weight: 700;
+      padding: 0;
+      margin-left: 28px;
+      color: hsl(158, 36%, 37%);
+    }
+
+    .item-cost.two {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 25px;
+      padding: 0;
+      color: hsl(228, 12%, 48%);
+      text-decoration: line-through;
+    }
+
+    .add-to-cart-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 350px;
+      height: 65px;
+      background-color: hsl(0, 0%, 100%);
+    }
+
+    .add-to-cart-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 85%;
+      height: 45px;
+      background-color: hsl(0, 0%, 100%);
+      border: none;
+      border-radius: 10px 10px 10px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: hsl(0, 0%, 100%);
+      background-color: hsl(158, 36%, 37%);
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .add-to-cart-button:hover {
+      background-color: hsl(158, 36%, 21%);
+    }
+
+    .add-to-cart-button p {
+      margin-left: 15px;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Add this media query at the end of your CSS code */
+    @media screen and (min-width: 768px) {
+  .flex-container {
+    flex-direction: row;
+    width: 700px; /* Double the width */
+    height: 500px; /* Change the height to be equal to the height of the card-container.two */
+  }
+
+  .card-container.one {
+    height: 500px; /* Set the height to 100% so they will fill the flex-container */
+  }
+  
+  .card-container.two {
+    height: 500px; /* Set the height to 100% so they will fill the flex-container */
+  }
+
+  .image-container {
+    background-image: url(./images/image-product-desktop.jpg);
+  }
+}
+
+
+
+    
   </style>
 </head>
 <body>
-
-  Preview
-
-  Gabrielle Essence Eau De Parfum
-
-  A floral, solar and voluptuous interpretation composed by Olivier Polge, 
-  Perfumer-Creator for the House of CHANEL.
-
-  $149.99
-  $169.99
-
-  Add to Cart
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class="flex-container">
+    <div class="card-container one">
+      <div class="image-container">
+        
+      </div>
+    </div>
+    <div class="card-container two">
+      <div class="category-container">
+        <p class="category-text">P E R F U M E</p>
+      </div>
+      <div class="title-container">
+        <p class="title">Gabrielle Essence Eau De Parfum</p>
+      </div>
+      <div class="item-description-container">
+        <p class="description-text">A floral, solar and voluptuous interpretation composed by Olivier Polge, 
+          Perfumer-Creator for the House of CHANEL.
+        </p>
+      </div>
+      <div class="item-cost-container">
+        <p class="item-cost one">$149.99</p>
+        <p class="item-cost two">$169.99</p>
+      </div>
+      <div class="add-to-cart-button-container">
+        <button class="add-to-cart-button"><svg width="15" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M14.383 10.388a2.397 2.397 0 0 0-1.518-2.222l1.494-5.593a.8.8 0 0 0-.144-.695.8.8 0 0 0-.631-.28H2.637L2.373.591A.8.8 0 0 0 1.598 0H0v1.598h.983l1.982 7.4a.8.8 0 0 0 .799.59h8.222a.8.8 0 0 1 0 1.599H1.598a.8.8 0 1 0 0 1.598h.943a2.397 2.397 0 1 0 4.507 0h1.885a2.397 2.397 0 1 0 4.331-.376 2.397 2.397 0 0 0 1.12-2.021ZM11.26 7.99H4.395L3.068 3.196h9.477L11.26 7.991Zm-6.465 6.392a.8.8 0 1 1 0-1.598.8.8 0 0 1 0 1.598Zm6.393 0a.8.8 0 1 1 0-1.598.8.8 0 0 1 0 1.598Z" fill="#FFF"/></svg><p>Add to Cart</p></button>
+      </div>
+    </div>
+
   </div>
 </body>
 </html>
